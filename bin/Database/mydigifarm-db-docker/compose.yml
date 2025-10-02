@@ -5,17 +5,35 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL mydigifarm BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Except as contained in this notice, the name of mydigifarm shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from mydigifarm.
 # mydigifarm.com
-# EFFECTIVEDATE: 20251001
+# EFFECTIVEDATE: 20250722
 # VERSION: 1.0
-# FILE: mydigifarm,1.0,.gitattributes
+# FILE: mydigifarm,1.0,compose.yml
 
-# DESCRIPTION: gitattributes file.  
-# LASTMODIFIED: 20251001
+# DESCRIPTION: Docker compose file for mydigifarm MariaDB service
+# LASTMODIFIED: 20250722
 
-#! .gitattributes
+#! .yml
 
-# Auto detect text files and perform LF normalization
-* text=auto
+name: mydigifarm-mariadb
 
-# -10959
+services:
+  DB:
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: mydigifarm
+      MARIADB_ROOT_PASSWORD: ${MDBpass}
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db-data:/var/lib/mysql
+      - ../conf-files:/docker-entrypoint-initdb.d/
+    secrets:
+      - db_pass 
+
+secrets:
+  db_pass:
+    environment: MDBpass
+
+# -10934
 # Copyright 2025 mydigifarm

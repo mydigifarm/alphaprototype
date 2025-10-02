@@ -5,17 +5,40 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL mydigifarm BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Except as contained in this notice, the name of mydigifarm shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from mydigifarm.
 # mydigifarm.com
-# EFFECTIVEDATE: 20251001
+# EFFECTIVEDATE: 20250929
 # VERSION: 1.0
-# FILE: mydigifarm,1.0,.gitattributes
+# FILE: mydigifarm,1.0,urls.py
+# DESCRIPTION: Sets up routers and url patterns. 
+# LASTMODIFIED: 20250929
 
-# DESCRIPTION: gitattributes file.  
-# LASTMODIFIED: 20251001
+#! .py
 
-#! .gitattributes
+## *|*|*|*|* Start Section 1 *|*|*|*|*
+## Section 1 covers the basic setup of variables and library configurations. 
+## *|*|*|*|* Section 1 *|*|*|*|*
 
-# Auto detect text files and perform LF normalization
-* text=auto
+from django.urls import path
+from apps.UserAccount.api.views import (
+    user_account_registration_view,
+    user_account_login_view,
+    user_account_auth_view,
+    user_account_logout_view,
+    openai_prompt_view,
+    get_hostname_view
+)
+
+app_name = "UserAccount"
+
+urlpatterns = [
+    path('register/', user_account_registration_view),
+    path('login/', user_account_login_view),
+    path('auth/me/', user_account_auth_view),
+    path('logout/', user_account_logout_view),
+    path('prompt/', openai_prompt_view),
+    path('hostname/', get_hostname_view)
+]
+
+## *|*|*|*|* End Section 1 *|*|*|*|*
 
 # -10959
 # Copyright 2025 mydigifarm

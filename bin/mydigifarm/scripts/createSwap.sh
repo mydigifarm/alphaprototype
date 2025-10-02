@@ -5,17 +5,23 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL mydigifarm BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Except as contained in this notice, the name of mydigifarm shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from mydigifarm.
 # mydigifarm.com
-# EFFECTIVEDATE: 20251001
+# EFFECTIVEDATE: 20250822
 # VERSION: 1.0
-# FILE: mydigifarm,1.0,.gitattributes
+# FILE: mydigifarm,1.0,createSwap.sh
+# DESCRIPTION: Creates a swap file of 1G and activates it.
+# LASTMODIFIED: 20250822
 
-# DESCRIPTION: gitattributes file.  
-# LASTMODIFIED: 20251001
+#! .sh
 
-#! .gitattributes
-
-# Auto detect text files and perform LF normalization
-* text=auto
+# sets up a 1G swap file and activates it
+# this should take an argument for size should we want to change it later
+echo "Allocating file"
+fallocate -l 1G /swapfile
+echo "making swap file"
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 
 # -10959
-# Copyright 2025 mydigifarm
+# Copyright 2025 mydigifarm   

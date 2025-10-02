@@ -5,17 +5,47 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL mydigifarm BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Except as contained in this notice, the name of mydigifarm shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from mydigifarm.
 # mydigifarm.com
-# EFFECTIVEDATE: 20251001
+# EFFECTIVEDATE: 20250929
 # VERSION: 1.0
-# FILE: mydigifarm,1.0,.gitattributes
+# FILE: mydigifarm,1.0,models.py
+# DESCRIPTION: Models used for upload. 
+# LASTMODIFIED: 20250929
 
-# DESCRIPTION: gitattributes file.  
-# LASTMODIFIED: 20251001
+#! .py
 
-#! .gitattributes
+## *|*|*|*|* Start Section 1 *|*|*|*|*
+## Section 1 covers the basic setup of variables and library configurations. 
+## *|*|*|*|* Section 1 *|*|*|*|*
 
-# Auto detect text files and perform LF normalization
-* text=auto
+from django.db import models
+from shortuuid.django_fields import ShortUUIDField
+import os
+
+## *|*|*|*|* End Section 1 *|*|*|*|*
+
+## *|*|*|*|* Start Section 2 *|*|*|*|*
+## Section 2 covers setting up classes and functions. 
+## Most functions are created here and used in the next section. 
+## *|*|*|*|* Section 2 *|*|*|*|*
+
+def get_upload_file_path(instance, filename):
+    file_name, extention = os.path.splitext(filename)
+    return "files/%s" % (file_name)
+
+
+class file(models.Model):
+    id = ShortUUIDField(primary_key=True,)
+    file_name = models.CharField(max_length=200)
+    file_extention = models.CharField(max_length=20)
+    file = models.FileField(
+        upload_to=get_upload_file_path, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_at = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return str(self.file_name)
+
+## *|*|*|*|* End Section 2 *|*|*|*|*
 
 # -10959
 # Copyright 2025 mydigifarm

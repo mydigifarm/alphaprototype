@@ -5,17 +5,36 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL mydigifarm BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Except as contained in this notice, the name of mydigifarm shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from mydigifarm.
 # mydigifarm.com
-# EFFECTIVEDATE: 20251001
+# EFFECTIVEDATE: 20250821
 # VERSION: 1.0
-# FILE: mydigifarm,1.0,.gitattributes
+# FILE: mydigifarm,1.0,getipAddress.py
+# DESCRIPTION: Gathers the IP address of the host machine.
+# LASTMODIFIED: 20250821
 
-# DESCRIPTION: gitattributes file.  
-# LASTMODIFIED: 20251001
+#! .py
 
-#! .gitattributes
+## *|*|*|*|* Start Section 1 *|*|*|*|*
+## Section 1 covers the basic setup of variables and library configurations. 
+## This is used to set initial variables and prepare for setup or service runs.
+## *|*|*|*|* Section 1 *|*|*|*|*
 
-# Auto detect text files and perform LF normalization
-* text=auto
+# Import socket module.
+import socket
+
+## *|*|*|*|* End Section 1 *|*|*|*|*
+
+## *|*|*|*|* Start Section 2 *|*|*|*|*
+## Section 2 covers setting up classes and functions. 
+## ## Section 2 covers Function creation along with classes and other more complex objects. 
+## Most functions are created here and used in the next section. 
+## *|*|*|*|* Section 2 *|*|*|*|*
+
+def get_ip_address():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("1.1.1.1", 80))
+    return s.getsockname()[0]
+
+## *|*|*|*|* End Section 2 *|*|*|*|*
 
 # -10959
 # Copyright 2025 mydigifarm

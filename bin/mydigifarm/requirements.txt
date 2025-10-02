@@ -1,0 +1,100 @@
+# Copyright 2025 mydigifarm
+# License mydigifarm
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL mydigifarm BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+# Except as contained in this notice, the name of mydigifarm shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from mydigifarm.
+# mydigifarm.com
+# EFFECTIVEDATE: 20250812
+# VERSION: 1.0
+# FILE: mydigifarm,1.0,requirements.txt
+# DESCRIPTION: Necessary Python packages for mydigifarm.
+# LASTMODIFIED: 20250812
+
+#! .txt
+
+## *|*|*|*|* Start Section 1 *|*|*|*|*
+## Section 1 covers the basic setup of variables and library configurations. 
+## This is used to set initial variables and prepare for setup or service runs.
+## *|*|*|*|* Section 1 *|*|*|*|*
+
+#List of required packages for mydigifarm.
+
+annotated-types==0.7.0
+anyascii==0.3.3
+anyio==4.10.0
+asgiref==3.9.1
+beautifulsoup4==4.13.5
+captcha==0.7.1
+certifi==2025.8.3
+cffi==2.0.0
+charset-normalizer==3.4.3
+cryptography==46.0.1
+defusedxml==0.7.1
+distro==1.9.0
+dj-rest-auth==7.0.1
+Django==5.2.6
+django-allauth==65.11.2
+django-cleanup==9.0.0
+django-cors-headers==4.9.0
+django-filter==25.1
+django-modelcluster==6.4
+django-permissionedforms==0.1
+django-stubs-ext==5.2.5
+django-taggit==6.1.0
+django-tasks==0.8.1
+django-treebeard==4.7.1
+djangorestframework==3.16.1
+djangorestframework_simplejwt==5.5.1
+draftjs_exporter==5.1.0
+et_xmlfile==2.0.0
+filetype==1.2.0
+h11==0.16.0
+html5lib==1.1
+httpcore==1.0.9
+httpx==0.28.1
+hvac==2.3.0
+idna==3.10
+jiter==0.11.0
+l18n==2021.3
+laces==0.1.2
+mariadb==1.1.13
+mysql-connector-python==9.4.0
+mysqlclient==2.2.7
+oauthlib==3.3.1
+openai==1.108.1
+openpyxl==3.1.5
+packaging==25.0
+pillow==11.3.0
+pillow_heif==1.1.0
+protobuf==6.32.1
+pycparser==2.23
+pydantic==2.11.9
+pydantic_core==2.33.2
+pyhcl==0.4.5
+PyJWT==2.10.1
+pyserial==3.5
+python-crontab==3.3.0
+python-dateutil==2.9.0.post0
+python3-openid==3.2.0
+pytz==2025.2
+requests==2.32.5
+requests-oauthlib==2.0.0
+shortuuid==1.0.13
+six==1.17.0
+sniffio==1.3.1
+soupsieve==2.8
+sqlparse==0.5.3
+telepath==0.3.1
+tqdm==4.67.1
+typing-inspection==0.4.1
+typing_extensions==4.15.0
+urllib3==2.5.0
+wagtail==7.1.1
+webencodings==0.5.1
+Willow==1.11.0
+
+## *|*|*|*|* End Section 1 *|*|*|*|*
+
+# -10959
+# Copyright 2025 mydigifarm

@@ -5,17 +5,33 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL mydigifarm BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # Except as contained in this notice, the name of mydigifarm shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from mydigifarm.
 # mydigifarm.com
-# EFFECTIVEDATE: 20251001
+# EFFECTIVEDATE: 20250929
 # VERSION: 1.0
-# FILE: mydigifarm,1.0,.gitattributes
+# FILE: mydigifarm,1.0,models.py
+# DESCRIPTION: Describes model data. 
+# LASTMODIFIED: 20250929
 
-# DESCRIPTION: gitattributes file.  
-# LASTMODIFIED: 20251001
+#! .py
 
-#! .gitattributes
+## *|*|*|*|* Start Section 1 *|*|*|*|*
+## Section 1 covers the basic setup of variables and library configurations. 
+## *|*|*|*|* Section 1 *|*|*|*|*
 
-# Auto detect text files and perform LF normalization
-* text=auto
+from django.db import models
+
+from wagtail.models import Page
+
+## *|*|*|*|* End Section 1 *|*|*|*|*
+
+## *|*|*|*|* Start Section 2 *|*|*|*|*
+## Section 2 covers setting up classes and functions. 
+## Most functions are created here and used in the next section. 
+## *|*|*|*|* Section 2 *|*|*|*|*
+
+class HomePage(Page):
+    pass
+
+## *|*|*|*|* End Section 2 *|*|*|*|*
 
 # -10959
 # Copyright 2025 mydigifarm
