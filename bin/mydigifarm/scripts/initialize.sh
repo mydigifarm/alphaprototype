@@ -9,7 +9,7 @@
 # VERSION: 1.0
 # FILE: mydigifarm,1.0,initialize.sh
 # DESCRIPTION: This file initializes the mydigifarm appcode libraries. It is responsible for initializing first time run and creating default variables.
-# LASTMODIFIED: 20250825
+# LASTMODIFIED: 20251122
 
 #! .sh
 
@@ -101,6 +101,7 @@ if [ "$ARGUMENTS" == "firstrun" ]; then
     (
       cd $myDigiBin/Database/mydigifarm-db-docker/ || exit
       docker compose up -d
+      #docker exec -it mydigifarm-mariadb-DB-1 /bin/bash -c 'echo "log_bin=ON" >> /etc/mysql/my.cnf' 
     )
     # Write to console for admin.
   fi
@@ -173,7 +174,7 @@ elif [ "$ARGUMENTS" == "reboot" ]; then
   SERVICEINITIALIZESCRIPT=$null
   nohup python3 $myDigiRoot/www/webback/manage.py runserver 0.0.0.0:8000 >$myDigiRoot/www/webback/nohup.txt 2>&1 &
   sleep 2
-  cd $myDigiRoot/www/webfront && nohup npm run serve >npm-nohup.txt 2>&1 &
+  cd $myDigiRoot/www/webfront && nohup npm run dev >npm-nohup.txt 2>&1 &
 elif [ "$ARGUMENTS" == "sensors" ]; then
   # Set up venv for python scripts
   echo "starting venv"

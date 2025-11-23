@@ -10,7 +10,7 @@
 # FILE: mydigifarm,1.0,vault_setup.py
 
 # DESCRIPTION: Sets up the vault service for mydigifarm. This includes installing vault, setting up the config file, generating a self-signed cert, and running the vault service.
-# LASTMODIFIED: 20250723
+# LASTMODIFIED: 20251122
 
 #! .py
 
@@ -203,6 +203,7 @@ ip_address = get_ip_address()
 
 # Vault skip verify var. Used to tell vault to ignore the self signed cert
 vault_skip_verify = "VAULT_SKIP_VERIFY=True"
+tls_skip_verify = "-tls-skip-verify"
 
 # These are the expected commands the functions above use that are required to setup and run vault.
 install_commands = [ 
@@ -224,11 +225,11 @@ launch_commands = [
         ]
 
 init_commands = [
-        f'docker exec -it mydigifarm-vault /bin/sh -c "{vault_skip_verify} vault operator init"'
+        f'docker exec -it mydigifarm-vault /bin/sh -c "vault operator init {tls_skip_verify}"'
         ]
 
 unlock_commands = [
-        f'docker exec -it mydigifarm-vault /bin/sh -c "{vault_skip_verify} vault operator unseal '
+        f'docker exec -it mydigifarm-vault /bin/sh -c "vault operator unseal {tls_skip_verify} '
         ]
 
 vault_login_commands = [

@@ -9,7 +9,7 @@
 # VERSION: 1.0
 # FILE: mydigifarm,1.0,createDemoData.py
 # DESCRIPTION: Generates synthetic data for the database to demo with.
-# LASTMODIFIED: 20250821
+# LASTMODIFIED: 20251122
 
 #! .py
 
@@ -20,7 +20,9 @@
 
 # Import modules for system, datetime, random, dbWriter, and argparsing. 
 import sys
-sys.path.append('/home/pi/alphaprototype/bin/RPi/modules/')
+import os
+myDigiRPiModules = f'{os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))}/RPi/modules'
+sys.path.append(myDigiRPiModules)
 import datetime
 import random
 import dbWriter
