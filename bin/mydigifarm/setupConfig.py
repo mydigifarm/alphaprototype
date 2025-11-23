@@ -10,7 +10,7 @@
 # FILE: mydigifarm,1.0,setupConfig.py
 
 # DESCRIPTION: Generates a configuration file for mydigifarm based on user input.
-# LASTMODIFIED: 20250812
+# LASTMODIFIED: 20251122
 
 #! .py
 
@@ -118,18 +118,22 @@ if __name__ == "__main__":
         )
         if check_demo_data['loadDemoData'].lower() in ['y', '']:
             replace_dict_list.append({'DEMODATABOOL': 'True'})
+        # moved this check under this previous question so we wont ask if we're not loading demo data
+            check_demo_clusters = ask_a_question(
+                question_text='How many clusters should we set up? [1-5] <default:2>: ',
+                question_key="numberOfClusters"
+            )
 
-        check_demo_clusters = ask_a_question(
-            question_text='How many clusters should we set up? [1-5] <default:2>: ',
-            question_key="numberOfClusters"
-        )
-        input_val = check_demo_clusters["numberOfClusters"]
-
-        if input_val.isdigit() and 1 <= int(input_val) <= 5:
-            replace_dict_list.append({'NUMBEROFCLUSTERS': input_val})
+            input_val = check_demo_clusters["numberOfClusters"]
+            if input_val.isdigit() and 1 <= int(input_val) <= 5:
+                replace_dict_list.append({'NUMBEROFCLUSTERS': input_val})
+            else:
+                print(f'Invalid cluster number "{input_val}". Setting to default.')
+                replace_dict_list.append({'NUMBEROFCLUSTERS': 'DEFAULT'})
         else:
-            print(f'Invalid cluster number "{input_val}". Setting to default.')
-            replace_dict_list.append({'NUMBEROFCLUSTERS': 'DEFAULT'})
+
+            replace_dict_list.append({'DEMODATABOOL': 'False'})
+        # area where the moved codeblock was taken from
     else:
         copy_config_file(template_path=config_template_path, config_path=config_file_path)
         config_vars = read_template_vars(file_path=config_file_path)

@@ -9,7 +9,7 @@
 # VERSION: 1.0
 # FILE: mydigifarm,1.0,firstRun.py
 # DESCRIPTION: This is the main installation file for mydigifarm.
-# LASTMODIFIED: 20250929
+# LASTMODIFIED: 20251122
 
 #! .py
 
@@ -307,9 +307,9 @@ update_config_file(filePath=myDigiwww+'/webback/mydigifarm_api/settings/base.py'
 ## moved to module import style 
 #run_cli_commands(command=create_data_command, use_shell=True)
 # trying import here the import after pip install is dead.  
-if os.environ.get('DEMODATA'):
+if os.environ.get('DEMODATA') == 'True':
     import utils.createDemoData as DemoData
-    if os.environ.get('DEMOCLUSTERS') != "Default":
+    if os.environ.get('DEMOCLUSTERS') != "DEFAULT":
         DemoData.create_data(days_of_data=15,number_of_clusters=int(os.environ.get('DEMOCLUSTERS')))
     else:
         DemoData.create_data(days_of_data=15,number_of_clusters=2)
