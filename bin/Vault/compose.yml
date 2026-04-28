@@ -10,7 +10,7 @@
 # FILE: mydigifarm,1.0.0,compare.yml
 
 # DESCRIPTION: This is the compose file for the included hashicorp vault container install.
-# LASTMODIFIED: 20250915
+# LASTMODIFIED: 20260428
 
 #! python
 
@@ -23,7 +23,7 @@ version: '3.8'
  
 services:
   vault:
-    image: hashicorp/vault:latest
+    image: hashicorp/vault:1.21
     restart: unless-stopped
     container_name: mydigifarm-vault
     ports:
